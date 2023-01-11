@@ -1,0 +1,20 @@
+[
+    {
+        "modelo": "Soldado Rudo",
+        "valor": 300,
+        "estructura": "plastico-resistente",
+        "img": "img/soldado rudo.webp"
+    },
+    {
+        "modelo": "Soldado Flaco",
+        "valor": 150,
+        "estructura": "plastico-debil",
+        "img": "img/soldado flaco.jpg"
+    },
+    {
+        "modelo": "Soldado Lider",
+        "valor": 450,
+        "estructura": "metal",
+        "img":"img/soldado lider.jpg"
+    }
+]
