@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Nuevos Tipos de datos en JavaScript</h1>
+    <script>
+        //Symbols:
+        //Un Symbol crea una referencia unica, es decir el resultado de la comparacion nos va a tirar falso. Estos simbolos sirven para crear propiedades privadas, porque no se pueden comparar entre ellas porque aunque tuvieran la misma descripcion siempre son unicas.
+        let id= Symbol("id");
+
+        let id2=Symbol("id2");
+
+        console.log(id===id2)
+        console.log(id,id2)
+        console.log(typeof id, typeof id2)
+
+
+        const NOMBRE = Symbol("nombre");
+        const SALUDAR = Symbol("saludar");
+
+        const persona = {
+            [NOMBRE]: "jon"
+             
+        }
+
+        persona.NOMBRE = "jonattan"
+
+
+        persona[SALUDAR] = function(){
+            console.log("Hola");
+        }
+
+        console.log(persona);
+
+        persona[SALUDAR]()
+
+
+        for (const propiedad in persona) {
+           console.log(propiedad)
+           console.log(persona[propiedad])
+            
+        }
+
+        console.log(Object.getOwnPropertySymbols(persona))
+
+        //Sets:
+        //Es como un array pero la representacion de los datos se da en forma mucho mas ordenada a traves de numeracion, este tambien contiene la cantidad de datos, con un atributo size.
+        const set = new Set([1,2,3,3,4,5,true,false,true,false,{},{},"hola", "HOLA"])
+
+        console.log(set)
+        console.log(set.size)
+
+
+        const set2 = new Set([])
+
+        set2.add(1);
+        set2.add(2);
+        set2.add(2);
+        set2.add(false);
+        set2.add(true);
+        set2.add(true);
+
+        console.log(set2)
+        console.log("Recorriendo el set")
+        for (const element of set2) {
+            console.log(element)
+        }
+        console.log("Recorriendo el set ForEach")
+        set2.forEach(item => console.log(item))
+
+        
+
+        let arr = Array.from(set2)
+        console.log(arr[2])
+
+
+        //Borrar valores dentro de un set con .delete()
+        set.delete("HOLA")
+        //.has comprueba si un valor existe dentro de la coleccion de datos.
+        console.log(set.has(true))
+
+        //Metodo .clear() sirve para limpiar el set, y dejarlo sin ningun valor. 
+        set2.clear();
+        
+        
+        //Maps (Valor Complejo) (Parecido a Objeto Primitivo)
+
+        const mapa = new Map();
+        mapa.set("Nombre", "Jon");
+        mapa.set("Apellido", "Mircha");
+        mapa.set("edad", 35);
+
+        //Devuelve el numero de elementos
+        console.log(mapa.size);
+        mapa.set("Nombre", "Jonnathan");
+        console.log(mapa);
+
+        mapa.delete("Apellido");
+        console.log(mapa);
+
+        //Como recorrer el mapa.
+        for (let [key, value] of mapa) {
+            console.log(`Llave:  ${key}  Valor: ${value}`)
+        }
+
+        //Establecer variables numericos en maps:
+        mapa.set(19, "diesinueve");
+        mapa.set(false, "false");
+        mapa.set({},{})
+
+        for (let [key, value] of mapa) {
+            console.log(`Llave:  ${key}  Valor: ${value}`)
+        }
+
+        //Segunda manera de inicializar los valores de un mapa.
+
+        const mapa2 = new Map([
+           [ "nombre", "Kenai"],
+           ["edad", 7],
+           ["Especie", "Perro"],
+           [null, "Raro"]
+        ])
+
+        console.log(mapa2);
+
+
+        const llavesMapa2 = [...mapa2.keys()]
+        const ValoresMapa2 = [...mapa2.values()]
+
+        console.log(llavesMapa2)
+
+        //Hermanos pequeños de Maps y Set
+        //WeakSets & WeakMaps
+        //Se forman con llaves y contienen datos debiles. Estos tienen algunas carencias, no se pueden iterar como cualquier maps o set, tampoco se pueden borrar todos los elementos de un solo comando, es decir, no se puede usar el .clear(). Dentro de estos no se pueden establecer valores como los sets, sino que se tienen que ir agregando con el metodo .add(). Otro punto es que solo se aceptan referencias debiles es decir, OBJETOS.
+
+        const ws = new WeakSet([])
+
+        let valor1 = {"valor1": 1}
+        let valor2 = {"valor2": 2}
+        let valor3 = {"valor3": 3}
+        let valor4 = {"valor4": 4}
+        ws.add(valor1);
+        ws.add(valor2);
+        ws.add(valor3);
+
+        console.log(ws)
+
+        ws.delete(valor2);
+
+        console.log(ws.has(valor1));
+        ws.add(valor2);
+
+        // setInterval(() => {
+        //     console.log(ws)
+        // }, 2000);
+
+
+        setTimeout(() => {
+            ws.add(valor4)
+        }, 6000);
+
+
+        const wm = new WeakMap();
+
+        let valor5 = {};
+        let valor6 = {};
+        let valor7 = {};
+
+        wm.set(valor5, "Llave 5");
+        wm.set(valor6, "Llave 6");
+        wm.set(valor7, "Llave 7");
+
+        console.log(wm);
+        console.log(wm.get(valor5));
+        console.log(wm.get(valor6));
+
+        wm.delete(valor7);
+
+        
+
+
+    </script>
+</body>
+</html>

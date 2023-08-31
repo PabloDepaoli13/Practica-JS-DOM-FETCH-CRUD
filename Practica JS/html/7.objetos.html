@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Objetos:
+
+        const perro = {
+           edad:33,
+           nombre:"Pedro",
+           Apellido: "Gonzales",
+           vida: true,
+           pasatiempos: ["correr", "Hacer Ejercicio", "Dar Clases"],
+           contacto: {
+            email: "jonmircha@gmail.com",
+            movil:  34555448485,
+            twiter: "@TwitterPerro"
+
+           },
+           saludar:function(){
+              console.log("Hola")
+           },
+           decirNombre(){
+             console.log(`Hola mi nombre es ${this.nombre} ${this.Apellido}`)
+           },
+           decirTwitter(){
+            console.log(`Me pueden seguir en ${this.contacto.twiter}`)
+           }
+           
+        }
+
+        console.log(perro)
+        console.log(perro.nombre)
+        console.log(perro.contacto.movil)
+        perro.saludar();
+        perro.decirNombre();
+        perro.decirTwitter();
+
+        console.log(Object.keys(perro))
+        //Propiedad .keys te devuelve un arreglo de todos los objetos que contiene el objeto
+        console.log(Object.values(perro))
+        //Values hace lo mismo que key pero siendo mas descriptivo y mostrandote los objetos y los valores que contienen esos objetos.
+        console.log(perro.hasOwnProperty("vida"))
+
+    </script>
+</body>
+</html>

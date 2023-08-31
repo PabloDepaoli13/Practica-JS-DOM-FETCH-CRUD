@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+    const numPrimo = (num=undefined) => {
+        if(!num) return console.warn("No agregaste un numero")
+        if(typeof num !== "number") return console.error("Necesitas ingresar un valor numerico")
+        if(num===0)return console.warn("No se permite este tipo de numeros tiene que ser mayor a 1")
+        if(num===1)return console.warn("No se permite este tipo de numeros tiene que ser mayor a 1")
+        if(Math.sign(num)===-1)return console.warn("No se permite este tipo de numeros tiene que ser mayor a 1")
+
+        let divisible = false;
+        for(let i = 2; i < num; i++ ){
+           if((num % i) ===0){
+             divisible = true;
+             break;
+           }
+        }
+
+        return (divisible)
+        ? console.log(`El numero ${num}, No es primo`)
+        : console.log(`El numero ${num}, Si es primo`)
+
+    }
+
+    numPrimo(7)
+
+
+
+    // 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+
+    const parOimpar = (num=undefined) => {
+        if(!num) return console.warn("No agregaste un numero")
+        if(typeof num !== "number") return console.error("Necesitas ingresar un valor numerico")
+        if(Math.sign(num)===-1)return console.warn("No se permite este tipo de numeros tiene que ser mayor a 1")
+
+        if((num % 2)===0){
+            return console.info("Es par")
+        }else{
+            return console.info("Es Impar")
+        }
+
+    }
+
+    parOimpar(4)
+
+    // 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+    const pasarGrados = (num=undefined, grados="") => {
+        if(!num) return console.warn("No agregaste un numero")
+        if(!grados) return console.warn("No agregaste los grados")
+        if(typeof num !== "number") return console.error("Necesitas ingresar un valor numerico")
+        if(Math.sign(num)===-1)return console.warn("No se permite este tipo de numeros tiene que ser mayor a 1")
+        if(typeof grados !== "string") return console.error("Necesitas ingresar un valor caracter")
+        if(grados.length !==1 || !/(C|F)/.test(grados))return console.warn("No se reconoce el caracter")
+
+        let nuevosGrados = 0;
+
+        if(grados === "C"){
+            nuevosGrados = (num * 9/5)+32
+            return console.info(`${nuevosGrados}°F`)
+        }else if(grados === "F"){
+            nuevosGrados = (num-32)*5/9
+            return console.info(`${nuevosGrados}°C`)
+        }
+
+       
+    }
+
+    pasarGrados(55,"F")
+    pasarGrados(5,"C")
+    </script>
+</body>
+</html>

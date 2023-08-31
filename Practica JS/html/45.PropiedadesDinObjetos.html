@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let aleatorio = Math.round(Math.random() * 100 + 5)
+    
+        const objUsuarios = {
+            [`id_${aleatorio}`]: "Valor Aleatorio"
+        };
+        const usuarios = ["Pepe", "Jon","Walter","Emmet", "Lili"];
+
+        usuarios.forEach((usuario, index)=> objUsuarios[`id_${index}`] = usuario);
+        console.log(objUsuarios);
+
+
+        const ObjNumeros = {
+            [`id_${aleatorio}`]: "Valor Aleatorio"
+        }
+
+        const arrayNum = [1, 2, 3, 4, 5, 6];
+
+        arrayNum.forEach((num, index)=> ObjNumeros[`id_${index}`] = num);
+    </script>
+    
+</body>
+</html>

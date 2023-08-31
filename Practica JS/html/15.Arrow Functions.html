@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const funcion1 = () => {}
+        //La arrow Function se vuelve mas sencilla y mucho mas expresiva. Como se puede ver abajo se puede simplificar en muchas formas, tanto parentecis como corchetes.
+        
+        const saludar = nombre => console.log(`Hola ${nombre}`)
+
+        saludar("irma")
+
+        //Diferencia entre Funcion comun y Arrow Function
+
+        const sumar = function (a,b){
+            return a+b
+        }
+
+        const sumarArrow = (a,b) => a+b;
+        console.log(sumarArrow(9,1))
+
+        //Momentos en donde son interesantes las Arrow Functions.
+        const funcionDeVariasLineas = () => {
+            console.log("Uno")
+            console.log("Dos")
+            console.log("Tres")
+        }
+
+        funcionDeVariasLineas();
+
+        const numeros2 = [1,2,3,4,5]
+
+        numeros2.forEach((e, index) => console.log(`${e} esta en la posicion ${index}`));
+
+        // Funcionan distinto en distintos contextos, ejemplo en un objeto no es recomendable hacer una arrow function porque a la hora de usar el this, toma el contexto de todo el archivo en vez de solo el objeto.
+
+        const perro = {
+            nombre: "Pepe",
+            edad: 2,
+            raza: "Araneeo",
+            ladrar(){ 
+                console.log(this)
+            }
+        }
+
+        perro.ladrar()
+
+
+    </script>
+</body>
+</html>

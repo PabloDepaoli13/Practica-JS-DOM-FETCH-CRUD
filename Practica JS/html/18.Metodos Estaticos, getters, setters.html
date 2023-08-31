@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal{
+            
+            
+        constructor(nombre, genero){
+               this.nombre =  nombre;
+               this.genero = genero;
+            }
+            //Metodos:
+            sonar(){
+            console.log("Hago sonidos por estoy vivo");
+            }
+            saludar(){
+            console.log(`Hola me llamo ${this.nombre}`);
+            }
+        }
+
+        class Perro extends Animal{
+           constructor(nombre, genero, tamaño){
+              super(nombre, genero);
+              this.tamaño = tamaño;
+              this.raza = null;
+           }
+           sonar(){
+            console.log("Soy un perro y mi sonido es un ladrido")
+           }
+           ladrar(){
+            console.log("Guau guau")
+           }
+
+           //Un metodo estatico es aquel que se puede ejecutar sin la necesidad de instanciar la clase.
+           static queEres(){
+            console.log("Perro animal mamifero.")
+           }
+
+           //Los getters y setters son metodos especiales que nos permiten establecer y obtener valores de nuestra clase.
+
+           //Metodo get permite obtener el atributo, osea darnos el resultado de la variable que queremos del objeto... En el caso de no estar definida anteriormente deberemos usar el atributo Set
+           get getRaza(){
+             return this.raza; 
+           }
+           // Set permite darle un valor al atributo que en este caso buscamos.
+           set setRaza(raza){
+              this.raza = raza;
+           }
+        }
+
+        Perro.queEres();
+
+        const mimi = new Animal("Mimi", "Hembra"), scooby = new Perro("Scooby", "Macho", "Chico")
+
+        console.log(mimi)
+        console.log(scooby)
+
+        mimi.saludar();
+        mimi.sonar();
+        scooby.saludar();
+        scooby.sonar();
+        scooby.ladrar();
+
+        //JS no reconoce como funciones ni a get ni a set por lo tanto hay que tratarlos como si fueran atributos.
+        scooby.setRaza = "Gran Danes"
+        console.log(scooby.getRaza)
+        
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(console)
+        console.error("Esto es un error")
+        console.warn("Esto es un aviso")
+        console.info("Esto es un mensaje informativo")
+        console.log("Soy un registro de lo que ha pasado en nuestra aplicacion")
+
+        let nombre = "Jhon", apellido = "Mircha", edad = 35
+
+        console.log(nombre)
+        console.log(apellido)
+        console.log(edad)
+
+        console.log(nombre, edad, apellido)
+
+        console.log(`Hola mi nombre es ${nombre} ${apellido} y tengo ${edad}`)
+
+        console.log(`Hola mi nombre es %s %s y tengo %d`, nombre , apellido,edad)
+
+        //Limpia la consola.
+        console.clear()
+
+        console.log(window)
+        console.log(document)
+
+        //.dir Permite mostrar todas las propiedades, objetos, atributos que se encuentran en document.
+        console.dir(document)
+
+        console.clear()
+
+        //Invocar grupos(Permite crear un grupo en la consola con los console.log que agreguemos entre medio de los .group).
+        console.group("Los cursos de @jonmircha en youtube.")
+        console.log("Curso de Node.js")
+        console.log("Curso de NodeJS")
+        console.log("Curso de PWAs")
+        console.log("Curso de Flexbox")
+        console.groupEnd()
+
+        console.clear()
+
+        console.log(console)
+        // .table(Object.entries(console)) permite crear en la consola una tabla que contenga en cada 1, las propiedades y caracteristicas del objeto seleccionado.
+        console.table(Object.entries(console))
+        console.clear()
+
+        const num = [1,2,3,4,5], vocales = ["a", "e", "i", "o", "u"];
+
+        console.table(num)
+        console.table(vocales)
+
+        const perro= {
+            nombre: "raul",
+            edad: 2,
+            raza: "pequeña"
+        }
+
+        console.table(perro)
+        console.clear()
+
+        //El nombre dentro del .time tiene que ser el mismo que el .timeEnd porque se toma como un identificador sino nos va a dar error.
+        console.time("Cuanto tiempo tarda mi codigo")
+        const arreglo = Array(1000000)
+        
+        for (let i = 0; i < arreglo.length; i++) {
+            arreglo[i] = i;
+            
+        }
+
+        console.timeEnd("Cuanto tiempo tarda mi codigo")
+        console.clear()
+
+        //Count es un contador en donde uno le da un valor y se imprime con una etiqueta numerica que aumenta cada vez que se imprime.
+        for (let i = 0; i <= 100; i++) {
+            
+            console.count("Codigo for")
+            console.log(i)
+            
+        }
+        console.clear()
+        let x = 3,
+        y = 2,
+        pruebaXY = "Se espera que X siempre sea menor que Y"
+
+
+        //Permite comprobar una condicion, y en el caso de no cumplirse retornar en la consola un mensaje con los valores que estan dentro de los parentesis.
+        console.assert(x < y, {x,y,pruebaXY})
+        </script>
+</body>
+</html>

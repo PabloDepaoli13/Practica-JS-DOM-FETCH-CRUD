@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //.this (Muy muy importante)
+        //Hace referencia al objeto global(window). 
+        
+        this.nombre = "Contexto Global";
+        //Si vemos al final de todas las propiedades, vamos a ver que esta propiedad se le asigno a window.
+
+        function imprimir(){
+            console.log(this.nombre);
+            //Esto se imprime de nuevo y lo toma porque nos encontramos en el ambito de window.
+        }
+        
+        const obj = {
+            nombre: "Context Objeto",
+            imprimir(){
+                console.log(this.nombre);
+            }
+        }
+
+        obj.imprimir();
+        //Ahora se imprime "Contexto Objeto" porque cambio el contexto de objeto. Se creo un nuevo bloque 
+
+        const obj2 = {
+            nombre: "Contexto Objeto 2",
+            imprimir
+        }
+        obj2.imprimir();
+
+        const obj3 = {
+            nombre: "Context Objeto 3",
+            imprimir: () =>{
+                console.log(this.nombre);
+            }
+        }
+
+        obj3.imprimir();
+        //Imprime Objeto Global, porque la arrow function no maneja su propio scope. Entonces agarra e imprime la propiedad del objeto padre en este caso Window.
+
+        function Persona(nombre){
+            this.nombre = nombre;
+            // return console.log(this.nombre);
+
+            return function(){
+                //Funcion anonima
+                console.log(this.nombre);
+            }
+        }
+        //Funcion contructora que crea su propio scope, es decir su propio espacio de donde tomar los argumentos.
+
+        let jon = new Persona("jon");
+
+        jon();
+        //Muestra "Contexto Global", porque, la nueva function anonima crea un nuevo contexto. Internamente la funcion anonima no tiene una propiedad nombre, entonces regresa y imprime la propiedad nombre del contexto global.
+
+        //Solucion:
+        function Persona2(nombre){
+            this.nombre = nombre;
+            // return console.log(this.nombre);
+
+            return ()=>{
+                //Funcion Flecha
+                console.log(this.nombre);
+            }
+        }
+
+        let jon2 =  new Persona2("Jon 2");
+
+        jon2();
+        //Devuelve "Jon 2", porque la arrow function devuelve la propiedad del padre.
+
+
+
+    </script>
+</body>
+</html>

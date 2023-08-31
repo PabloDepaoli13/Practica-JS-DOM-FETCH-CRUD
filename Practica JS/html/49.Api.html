@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //WEB API
+        //Serie de objetos y mecanismos que tienen los navegadores para poder interactuar con todo lo que tiene que ver el navegador. DOM,  BOM, CSSOM;
+        //WEB APIs:
+        //Eventos, Forms, AJAX-Fetch, History, Web Storage, Geolocation, Drag & Drop, Indexed DB, Canvas, MatchMedia, etc
+        console.log(document)//Document HTML.
+        let texto = "Hola soy pablo como estas papito"
+        const hablar = (texto) => speechSynthesis.speak(new SpeechSynthesisUtterance(texto))
+
+        hablar(texto);//Invoca a un traductor a que hable y se escuche en tu pagina web, apenas entramos.
+    </script>
+</body>
+</html>

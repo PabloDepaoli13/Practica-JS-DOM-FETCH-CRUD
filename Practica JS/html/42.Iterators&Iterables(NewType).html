@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Nuevos tipos de datos en JS</h1>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+
+
+    <script>
+        const iterable = new Set([1,2,3,4,5,5]);
+        const iterableMap = new Map([["nombre", "Nombre"],["edad", "Edad"]]);
+
+
+        //Accedemos al iterador de nuestra variable iterable.
+        const iterador = iterable[Symbol.iterator]();
+        const iterador2 = iterableMap[Symbol.iterator]();
+
+        console.log(iterable);
+        console.log(iterador);
+
+        //Forma de Iterar Manual
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+
+        let next = iterador.next();
+
+        while(!next.done){
+            console.log(next.value)
+            next = iterador.next();
+        }
+
+        let next1 = iterador2.next()
+
+        while(!next1.done){
+            console.log(next1.value)
+            next1 = iterador2.next();
+        }
+    </script> 
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD API REST Fetch</title>
+</head>
+<body>
+    <h1>CRUD API REST Fetch</h1>
+    <section id="crud">
+        <article>
+            <h2 class="crud-title">Agregar Usuario</h2>
+            <form class="crud-form">
+                <input type="text" name="nombre" 
+                placeholder="nombre" required>
+                <br>
+                <input type="text" name="edad" placeholder="edad" required>
+                <br>
+                <input type="submit" value="Enviar"></input>
+                <input type="hidden" name="id">
+            </form>
+        </article>
+        <article>
+            <h2>Ver Usuarios</h2>
+            <table id="crud-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="t-body">
+
+                </tbody>
+            </table>
+        </article>
+    </section>
+    <template id="crud-template">
+        <tr>
+            <td class="name"></td>
+            <td class="edad"></td>
+            <td>
+                <button class="edit">Editar</button>
+                <button class="delete">Borrar</button>
+            </td>
+        </tr>
+    </template>
+    <script src="../js/4.crud_Fetch.js"></script>
+</body>
+</html>

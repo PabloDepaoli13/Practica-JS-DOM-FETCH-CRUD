@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+// 5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+
+// function invertirLetra(){
+//     let letra = prompt("Dame una cadena de textoHola")
+//     let resultado = ""
+//     for(i = letra.length -1;i >= 0; i--){
+//         resultado += letra.charAt(i)
+//     }
+//     console.info(`La letra invertida es: ${resultado}`)
+// }
+// invertirLetra();
+
+//Forma 2
+const invertirLetra2 = (cadena = "")=>(!cadena)? console.warn("No ingresaste una cadena"): console.info(cadena.split("").reverse().join(""))
+
+invertirLetra2("Hola Mundo")
+//Como se puede ver en split que es el que genera un arreglo con los valores de nuestra cadena. Le pasamos el parametro "" para que con cada una de las letras haga un arreglo.
+
+//.join("") Lo que hace es la funcion inversa a split, este hace que la cadena vuelva a hacer una sola dependiendo el parametro que le estamos pasando.
+
+
+// 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+
+const textoEnCadena = (cadena="", texto="") => {
+    if(!cadena)return console.warn("No ingresaste una cadena")
+
+    if(!texto)return console.warn("No ingresaste un texto")
+
+    let i = 0;
+    contador =0;
+    while(i !== -1){
+       i = cadena.indexOf(texto, i)
+       if(i !== -1){
+        i++;
+        contador++;
+       }
+       
+    }
+    return console.info(`La cantidad de veces que se repitio la palabra fue: ${contador}`);
+}
+
+textoEnCadena("hola hola hola tres hola hola cuatro", "hola")
+
+
+
+
+// 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+
+const palidromo = (palabra="") => {
+    if(!palabra) return console.warn("No ingresaste una palabra o frase")
+
+    palabra = palabra.toLowerCase();
+    let alReves = palabra.split("").reverse().join("")
+
+    return (palabra === alReves)?console.info(`Si es palindromo. Palabra original ${palabra}. Palabra al reves ${alReves}`): console.info(`No es palindromo. Palabra original ${palabra}. Palabra al reves ${alReves}`)
+}
+
+palidromo("SalAs")
+
+// 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion(xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+
+ const eliminarCaracteres = (texto = "", patron ="") => (!texto)
+ ?console.warn("No ingresaste un texto")
+ :(!patron)? console.warn("No ingresaste ningun patron"): console.info(texto.replace(new RegExp(patron, "ig"), ""))
+
+ eliminarCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz")
+ eliminarCaracteres("Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae consectetur possimus esse porro suscipit quod eos architecto impedit veritatis quia dolore quibusdam et consequatur, odio totam sint? Deleniti, dicta optio?", "[a-z]")// De la a a la z entre corchetez elimina todas las letras del abecedario de la A a la Z
+    </script>
+</body>
+</html>

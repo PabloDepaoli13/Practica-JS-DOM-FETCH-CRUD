@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Proxis
+        //Es un nuevo mecanismo que te permite crear un objeto basado en un objeto literal inicial. Se crea un objeto con un modelo a seguir, para que obtenga las caracteristicas de su objeto padre. El proxie va a tomar tu objeto literal, va a generar una copia y va a permitir que generes ciertas operaciones, validaciones de tipos de datos...etc, se logra un metodo de vinculacion.
+
+        const persona = {
+            nombre: "",
+            edad: 0,
+            apellido: ""
+        }
+
+        const manejador = {
+            set(obj, prop, valor){
+                //Con esta validacion if impedimos que se agregue una propiedad que no existe dentro del objeto literal
+                if(Object.keys(obj).indexOf(prop)=== -1){
+                    return console.error(`La propiedad ${prop} no existe en el objeto persona.`);
+
+                }
+                //Con esto podemos darle valor a las propiedades de nuestro objeto copia, junto a nuestro objeto literal.
+                if(
+                    prop === "nombre" || prop === "apellido" && !(/^[A-Z]$/g.test(valor))
+                ) return console.error("La propiedad solo acepta letras y espacios en blanco.")
+                obj[prop] = valor;
+            }
+        }
+
+
+        const jon =  new Proxy(persona, manejador);
+
+        jon.nombre = "jon";
+        jon.apellido = "Mircha";
+        jon.edad = 34;
+
+
+
+        // jon.twitter = "http://twitter.com"  Va a dar error porque  no se encuentra dentro del objeto.
+        console.log(jon)
+    </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+:root{
+   --main-color: #F0E68C;
+   --menu-color: #FFD700;
+   --text-color: #FF8C00;
+   --line-color: #FFFAFA;
+   --main-font: sans-serif;
+   --font-size: 16px;
+}
+
+html{
+    box-sizing: border-box;
+    font-family: var(--main-font);
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+    overflow-x: hidden;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    margin: 2rem;
+    border: var(--main-color);
+    border-style:  outset;
+}
+/*Menu Hamburguesa*/
+
+header{
+    align-content: center;
+    text-align: center;
+    background-color: var(--menu-color);
+    width: 100%;
+    padding: 1rem; 
+}
+.secciones{
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    font-size: 1rem;
+}
+.section{
+    padding: 4rem;
+    padding-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.panel{
+    transform: translate(-100%,0 );
+    position: fixed;
+    z-index: 998;
+    margin-bottom: 30px;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    border-radius: 3%;
+    border-style: groove;
+    border-color: #FF8C00;
+    padding-right: 10rem;
+    padding-left: 10rem;
+    background-color: var(--main-color);
+    align-items: center;
+    align-content: center;
+    
+    transition: transform 0.4s ease;
+}
+.panel.is-active{
+    transform: translate(0,0);
+}
+.menu{
+    display: flex;
+    text-decoration: none;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+    
+
+}
+
+.menu a{
+    color: black;
+    text-decoration: none;
+    /* margin-top: 5px;
+    margin-bottom: 2rem; */
+    width: inherit;
+    display: block;
+    font-size: 20px;
+    width: inherit;
+    display: block;
+    transition: all 0.3s ease;
+    
+}
+
+.menu a:hover{
+    font-weight: bold;
+    background-color: #FFFAFA;
+    color: var(--menu-color);
+  }
+
+  .panel-btn{
+    display: fixed;
+    position: fixed;
+    z-index: 999;
+    bottom: 1vh;
+    right: 1vw;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--menu-color);
+  }
+
+
+
+

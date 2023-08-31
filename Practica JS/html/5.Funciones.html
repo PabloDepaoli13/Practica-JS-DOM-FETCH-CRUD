@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Declaracion de la funcion
+        function saludo(){
+            let saludo = "Hola mundo"
+            console.log(saludo)
+        } 
+        //
+        saludo()
+        function unaFunctionQueDevuelveValor(){
+            return "Hola como estas?"
+        }
+        console.log(unaFunctionQueDevuelveValor())
+
+
+        function saludar(nombre = "Desconocido", edad = 0){
+           return `Hola ${nombre}, tienes ${edad} años de edad.`
+        }
+
+        console.log(saludar("pablo", 23)) 
+        console.log(saludar())
+
+
+        //Funciones Declaradas VS Funciones expresadas.
+        function funcionDeclarada(){
+            console.log("Esto es una funcion declarada, puede invocarse en cualquier parte de nuestro codigo, incluso antes de que la funcion sea declarada.")
+        }
+
+        funcionDeclarada()
+
+        //function anonima(funcion sin nombre) Este tipo de funciones solo se puede acceder luego de ser declarada, no antes, si tratamos de llamarla antes no va a dar error.
+        const functionExpresada = function(){
+   
+            console.log("Esto es una funcion expresada, es decir, una funcion que se le ha asignado como valor a una variable, si invocamos esta funcion antes de su definicion java script nos dira: ...")
+        }
+
+        functionExpresada();
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Asincronia en JavaScript</h1>
+    <script>
+
+        //Set Time Out: Con este temporarizador, podemos poner un bloque de codigo que se va a ejecutar cuando 
+
+        // console.log("incio")
+        let primerTimeOut = setTimeout(()=> {
+
+            console.log("Ejecutando un setTimeOut, esto se ejecuta 1 sola vez")
+        }, 10000)
+
+        //Este Set  Interval permite ejecutar una accion sin parar cada vez que pase el tiempo que pedimos.
+
+        let primerInterval = setInterval(() =>{
+            console.log("Ejecutando un set Interval")
+
+        }, 3000)
+
+        //A traves del setInterval podemos mostrar el tiempo, con un new Date y ver como se va actualizando cada segundo.
+        // setInterval(()=>{
+        //     console.log(new Date().toLocaleTimeString())
+            
+        // },1000)
+
+        clearInterval(primerInterval);
+        clearTimeout(primerTimeOut);
+
+        console.log("Despues del Clear")
+
+
+    </script>
+</body>
+</html>

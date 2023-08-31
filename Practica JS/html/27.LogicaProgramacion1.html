@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1. Crea una funcion que cuente el numero de caracteres de una cadena de texto, pe. miFuncion(Hola Mundo), devolvera 10.
+         function NumCaracters(letra){
+             console.log(letra.length)
+         }
+
+         NumCaracters("hola pablo")
+         //Funcion Flecha:
+         let numCharac = (letra) => letra.length;
+         
+         //Funcion flecha junto con operador ternario
+         const cadena = (letra = "") => (!cadena)? console.warn("No ingresaste ninguna cadena"): console.info(`La cadena ${letra} tiene ${letra.length} caracteres`)
+
+        cadena("Hola")
+         
+
+         //2.Programa una funcion que te devuelva el texto recortado segun el numero de caracteres indicados. Ejemplo: ("Hola mundo") devuelva solo hola.
+
+         function NumCaractersIndi(string1,numCaract){
+             let letra = string1
+              
+             console.log(letra.substr(0,numCaract))
+         }
+
+         NumCaractersIndi("Hola Mundo",4);
+
+         //Funcion Flecha:
+         let hastaDonde = (letra,num) => letra.substr(0, num)
+
+         console.log(hastaDonde("Hola Pablo", 4))
+
+         let ejercicioDos = (str, x)=> str.slice(0, x);
+
+         console.log(ejercicioDos("me alegro de que estes bien", 9));
+
+         const hastaDonde2 = (letra, num) => (!letra, !num)? console.warn("Te falto ingresar uno de los valores"): console.info(`El nuevo valor de caracteres es:${letra.slice(0, num)}`)
+
+         //3.Crea una funcion que dada una string te devuelva un array de textos separados por cierto caracter, pe.
+
+         function HacerArray(string1,separador){
+             let letra = string1
+              console.log(letra.split(separador)) 
+         }
+
+         HacerArray("Hola que tal", " ")
+
+         let HacerArray2 = (letra, separador) => letra.split(separador)
+
+         console.log(HacerArray2("Hola que tal"," "))
+
+         const hacerArray3 = (letra = "", separador = 0) => (!letra, !separador)? console.warn("No ingresaste uno de los 2 valores necesarios"): console.info(letra.split(separador))
+         //4.Crea una funcion que repita el numero de veces una string.
+
+         function repetirString(string1,num){
+            console.log(string1.repeat(num))
+         }
+
+         repetirString("Hola 3 veces ",3)
+
+         const repetirString1 = (string, num) => (!string, !num)? console.warn("No ingresaste uno de los 2 valores") : console.info(`Repetidor: ${string.repeat(num)}`)
+         
+         repetirString("Hola 2 veces ",2)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Arreglo vacio
+        const array = []
+        console.log(array)
+        //Arreglo con elementos
+        const array2 = [1, true, "hola", "A", "B", "C",[1,2,3]]
+        //Dentro de este arreglo puede haber otros arreglos, y el orden en el que comienza es desde el 0
+
+        console.log(array2[6][0])
+        console.log(array2.length)
+        //Este .lenght devolvera la cantidad de elementos que se encuentran dentro del array
+
+
+        const c = Array.of("A","B","C")
+        const f = Array.of(100).fill(false)
+        console.log(f)
+
+
+        const colores = ["rojo", "azul", "verde"]
+        console.log(colores)
+
+        //Agregamos el negro al ultimo lugar
+        colores.push("Negro")
+        //Quitamos el ultimo color.
+        colores.pop()
+
+        colores.forEach(function(e, inde){
+            console.log(`<li id="${inde}">${e}</li>`)
+        })
+
+        
+    </script>
+</body>
+</html>

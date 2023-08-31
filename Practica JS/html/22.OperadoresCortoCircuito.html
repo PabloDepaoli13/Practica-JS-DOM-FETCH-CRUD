@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function saludar(nombre){
+            //Antes de poner valores por defecto en los parametros se usaban los valores cortocircuitos de la siguiente manera:
+            nombre = nombre || "desconocido";
+
+            console.log(`Hola ${nombre}`)
+
+            //Tambien el OR se puede utilizar para determinar si algo es true o false. Porque en cuando en operador OR determina que algo es true arroja ese resultado, en caso contrario, muestra el valor de la derecha
+            console.log("cadena" || "Valor de la derecha")
+            console.log(19||"Valore de la derecha")
+            console.log(true||"Valore de la derecha")
+            console.log([]||"Valore de la derecha")
+            //En los casos de arriba con los valores true aplica el valor de la izquiera pero en los siguientes casos ocurre lo contrario.
+            console.log(false||"Valore de la derecha")
+            console.log(null||"Valore de la derecha")
+            console.log(undefined||"Valore de la derecha")
+            console.log(""||"Valore de la derecha")
+            console.log(0||"Valore de la derecha")
+
+            //En el caso del AND sirve para determinar valores falsos, ejemplo si algo es true mostrara el valor de la derecha en caso de que sea falso mostrara el valor false.
+            console.log(false&&"Valore de la derecha")
+            console.log(null&&"Valore de la derecha")
+            console.log(undefined&&"Valore de la derecha")
+            console.log(""&&"Valore de la derecha")
+            console.log(0&&"Valore de la derecha")
+
+            console.log("cadena" && "Valor de la derecha")
+            console.log(19&&"Valore de la derecha")
+            console.log(true&&"Valore de la derecha")
+            console.log([]&&"Valore de la derecha")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "usuario": [
+    {
+      "nombre": "Pepe",
+      "edad": "55",
+      "Edad": 44,
+      "id": 7
+    },
+    {
+      "nombre": "Pablo",
+      "Edad": "24",
+      "id": 8
+    },
+    {
+      "nombre": "Tomi",
+      "Edad": "41",
+      "id": 9
+    },
+    {
+      "nombre": "Jimmy",
+      "Edad": "55",
+      "id": 10
+    }
+  ],
+  "cliente": [
+    {
+      "id": 1,
+      "nombre": "Señora 1",
+      "Apellido": "Vieja 1"
+    },
+    {
+      "id": 2,
+      "nombre": "Señora 2",
+      "Apellido": "Vieja 2"
+    }
+  ]
+}

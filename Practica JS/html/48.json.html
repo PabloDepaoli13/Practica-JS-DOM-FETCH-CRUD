@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //JSON: Es un formato ligero de intercambio de datos. Se ha convertido en un estandar en el intercambio de informacion, por lo cual todos los lenguajes tienen que tener compatibilidad.
+
+        const json = {
+ 
+            cadena: "jon",
+            numero: 35,
+            booleano: true,
+            Arreglo: ["correr", "programar", "cocinar"],
+            objeto: {
+                twitter: "twitter",
+                email: "@gmail.com",
+
+            },
+            nulo:null
+        }
+
+       
+
+        //Este objeto lo vamos a pasar a un .json donde lO vamos a agregar, una regla basica de un .json es que todas las propiedades que metamos dentro deben ir con comillas dobles, no se aceptan otro tipo de comillas.
+
+        //Metodos de Json: Parse() y Stringify()
+
+        console.log(JSON)//Muestra que es un objeto con sus symbols.
+
+        //.parse() :  Es un metodo de json que lo que hace es transformar los datos recibidos .json, en un formato legible o entendible para java script.
+
+        console.log(JSON.parse("{}"))//Hace que java lo identifique como objeto en vez de un dato tipo string.
+        console.log(JSON.parse("[1,2,3]"))//Lo mismo con este tipo de dato.
+
+        //stringify(): Hace lo contrario a parse(), transforma los datos a formato json.
+
+        console.log(JSON.stringify([1,2,3,4,5]))
+        console.log(JSON.stringify({ hola: "Saluodo"}))
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Los generadores sirven para volver iterable una funcion.
+        function iterable(){
+            yield "hola"
+            console.log("Hola consola");
+            yield "Hola2"
+        console.log("Seguimos con mas instrucciones de nuestro codigo");
+        yield "hola3";
+        yield "Hola4";
+        }
+
+
+        let iterador = iterable();
+        // console.log(iterador.next);}
+
+        for(let y of iterador){
+            console.log(y)
+        }
+
+        const arr = [...iterable()];
+
+
+        //Segunda funcion Iterable.
+
+
+        function cuadrado(valor){
+           setTimeout(() => {
+               console.log({
+                   valor, 
+                   resultado: valor*valor
+                } )
+           }, Math.random() * 1000);
+
+
+
+           return {
+            valor, 
+            resultado: valor*valor
+           }
+        }
+
+
+        function generador(){
+            console.log("Inicia Generator");
+            yield cuadrado(1);
+            yield cuadrado(2);
+            yield cuadrado(3); 
+            yield cuadrado(4);
+            yield cuadrado(5);
+            console.log("Termina Generator");
+        }
+
+        let gen = generator();
+
+        for(let y of gen){
+            console.log(y);
+        }
+    </script>
+</body>
+</html>

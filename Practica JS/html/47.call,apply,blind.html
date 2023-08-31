@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       //3 Metodos para reservar la referencia de un objeto.
+
+       console.log(this);
+       this.nombre = "Contexto Global";
+
+       this.lugar = "Contexto Global";
+
+       function saludar(saludo, aQuien){
+           console.log(`${saludo} ${aQuien} desde el ${this.lugar}`);
+       }
+
+       saludar();//"Contexto Global";
+
+       const obj ={
+           lugar : "Contexto Objeto"
+       }
+
+       //Call, Apply en los dos le damos la referencia de donde tiene que sacar el scope, en este caso le pasamos que busque "this.lugar" del contexto objeto.
+       saludar.call(obj, "Hola", "Jon");
+       saludar.apply(obj, ["Adios", "Mircha"]);
+       //La diferencia entre estos 2 es que, cada uno pide una serie de parametros, .call los recibe con comas y .apply los recibe en forma de arreglos.
+
+       saludar.call(null, "Hola", "Jon");
+       saludar.call(this, "Hola", "Jon");
+       //En el caso de usar null el contexto vuelve a ser contexto global. this selecciona el contexto en el que te encuentres.
+
+       const persona = {
+           nombre : "jon",
+           saludar: function(){
+               console.log(`hola ${this.nombre}`)
+           }
+       }
+
+       persona.saludar();
+
+
+       const otraPersona = {
+           saludar: persona.saludar.bind(persona)
+           //.bind sirve para enlazar el contexto de otro objeto.
+       }
+
+
+    </script>
+</body>
+</html>

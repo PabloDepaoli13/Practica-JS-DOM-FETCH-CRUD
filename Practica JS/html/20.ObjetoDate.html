@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(Date())
+
+        let fecha = new Date();
+        console.log(fecha)
+
+        //Dia del mes
+        console.log(fecha.getDate())
+ 
+        //Dia de la semana
+        console.log(fecha.getDay())
+
+        //Mes:
+        console.log(fecha.getMonth())
+        
+        //Año:
+        console.log(fecha.getFullYear())
+        //Horas,Minutos,Segundos, Milisegundos
+        console.log(fecha.getHours())
+        console.log(fecha.getMinutes())
+        console.log(fecha.getSeconds())
+        console.log(fecha.getMilliseconds())
+
+        //Obtener la fecha y horarios de manera de strings
+        console.log(fecha.toString())
+        console.log(fecha.toDateString())
+        console.log(fecha.toLocaleString())
+        console.log(fecha.toLocaleDateString())
+        console.log(fecha.getTimezoneOffset()) 
+
+        //Te brindan la hora del meridiano de greenwich
+        console.log(fecha.getUTCDate())
+        console.log(fecha.getUTCHours())
+
+        //Brinda el instante que esta ocurriendo en el presente. Cuanto tiempo paso desde 1970. 
+        console.log(Date.now())
+
+        //Revisar mas acerca de esto en Moment.JS 
+
+        let cumpleJon = new Date(1984,1,23)
+        console.log(cumpleJon)
+    </script>
+</body>
+</html>

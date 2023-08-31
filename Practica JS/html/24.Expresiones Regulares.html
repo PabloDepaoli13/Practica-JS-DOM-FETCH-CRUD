@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*Expresiones Regulares
+        Son una secuenia de caracteres que forma un patron de busqueda, principalmente de patrones de cadenas de caracteres. */
+
+        //Declarar utilizando funcion constructora.
+
+        let cadena = "Lorem ipsum dolor sit amet enim   ad  minim veniam"
+
+        let expReg = new RegExp("lorem", "ig")//Aqui se puede ver que usamos la "i" para que ignore las diferencias de mayusculas y minusculas. Si agregamos tambien la g "ig" o "g" solamente, le estamos diciendo que no se detenga a la primer coincidencia.
+        console.log(expReg.test(cadena))
+        console.log(expReg.exec(cadena))
+
+         //Una forma de encotrnar las expresiones, pero en formato distinto.
+        let expReg2 = /lorem/ig;
+        let expReg3 = /lorem[1,2]/;
+        
+        //Este tipo de expresiones sirven para validar datos.
+        
+
+
+
+    </script>
+</body>
+</html>

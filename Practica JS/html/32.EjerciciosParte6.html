@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 18) Programa una función que dada una  de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+        const contarLetras = (cadena="") => {
+            if(!cadena) return console.warn("No agregaste una cadena de texto")
+            if(typeof cadena !== "string") return console.error("Necesitas ingresar una  de texto")
+
+            let contadorVocal = 0, consonantes = 0;
+
+            cadena= cadena.toLocaleLowerCase()
+
+            for (const letra of cadena) {
+                if(/[aeiou]/.test(letra)){
+                    contadorVocal++
+                }
+                if(/[bcdfghjklmnñpqrstvwxyz]/.test(letra)){
+                    consonantes++;
+                }
+            }
+            return console.info({
+                cadena ,
+                contadorVocal,
+                consonantes
+
+            })
+            
+        }
+        contarLetras("Hola Mundo")
+
+
+        // 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+        const validarNombre = (nombre ="")=> {
+            if(!nombre) return console.warn("No agregaste una  de texto")
+            if(typeof nombre !== "string") return console.error("Necesitas ingresar una  de texto")
+            let expReg = /^[A-Za-zÑñáÁéÉíÍÓóÚú\s]+$/g.test(nombre)
+            //^ Circunflejo hacia arriba indica que no puede haber nada antes
+            //$ Simbolo dolar indica que no puede haber nada luego
+            // \s permite espacios en blancos.
+
+            return (expReg)?console.info("El nombre ingresado es valido"): console.info("El nombre ingresado es no valido")
+
+        }
+
+        validarNombre("Pablo")
+        validarNombre("Jonathan,")
+        // 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+        const validarGmail = (correo ="")=> {
+            if(!correo) return console.warn("No ingresaste un email")
+            if(typeof correo !== "string") return console.error("Necesitas ingresar una  de texto")
+            let expReg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/g.test(correo)
+            //^ Circunflejo hacia arriba indica que no puede haber nada antes
+            //$ Simbolo dolar indica que no puede haber nada luego
+            // \s permite espacios en blancos.
+
+            return (expReg)?console.info("El email ingresado es valido"): console.info("El email ingresado es no valido")
+
+        }
+
+        validarGmail("PabloReloco@gmail.com")
+
+
+        const validarPatron= (cadena ="", patron=undefined)=> {
+            if(!cadena) return console.warn("No ingresaste un email")
+            if(typeof cadena !== "string") return console.error("Necesitas ingresar una  de texto")
+            if(!patron) return console.warn("No ingresaste un patron")
+            if(patron instanceof RegExp) return console.warn("El parametro de patron tiene que ser una expresion regular")
+            let expReg = patron.test(cadena)
+            //^ Circunflejo hacia arriba indica que no puede haber nada antes
+            //$ Simbolo dolar indica que no puede haber nada luego
+            // \s permite espacios en blancos.
+
+            return (expReg)?console.info("El email ingresado es valido"): console.info("El email ingresado es no valido")
+
+        }
+
+        validarPatron("Pablo@gmail.com", /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/g)
+    </script>
+</body>
+</html>

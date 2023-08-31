@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+
+    const arrayNumerico5 = (array1 = undefined) => {
+            if(!array1) return console.warn(`Debes ingresar un parametro`)
+            
+            if(!(array1 instanceof Array)) return console.warn("Debes ingresar un objeto de tipo Array en el parametro")
+            if((array1 === 0)) return console.warn("Debes ingresar un array de al menos 1 numero")
+
+            for (const element of array1) {
+                if(typeof element!== "number")return console.warn("El array debe contener solo numeros.")
+            }
+
+            return console.info({
+                array1,
+                asc: array1.map(el => el).sort((a,b)=>a-b),
+                desc: array1.map(el => el).sort((a,b)=>b-a)
+            })
+            
+        }
+        arrayNumerico5([7,5,7,8,6,22])
+
+
+    // 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+    
+    const arrayNumerico6 = (array1 = undefined) => {
+            if(!array1) return console.warn(`Debes ingresar un parametro`)
+            
+            if(!(array1 instanceof Array)) return console.warn("Debes ingresar un objeto de tipo Array en el parametro")
+            if((array1 === 0 || array1 === 1)) return console.warn("Debes ingresar un array de al menos 2 numeros")
+
+            // return console.info({
+            //     array1,
+            //     sinDuplicados: array1.filter((value,index,self) => self.indexOf(value)===index)
+            // })
+            return console.info({
+                array1,
+                sinDuplicados: [...new Set(array1)]
+            })
+            
+        }
+        arrayNumerico6([7,5,7,8,6,22])
+
+    // 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+
+    const arrayNumerico7 = (array1 = undefined) => {
+            if(!array1) return console.warn(`Debes ingresar un parametro`)
+            
+            if(!(array1 instanceof Array)) return console.warn("Debes ingresar un objeto de tipo Array en el parametro")
+            if((array1 === 0)) return console.warn("Debes ingresar un array de al menos 1 numero")
+
+            for (const element of array1) {
+                if(typeof element!== "number")return console.warn("El array debe contener solo numeros.")
+            }
+
+            return console.info(
+                //Total=Elementovacio donde se va a almacenar la suma de num
+                //Num son los elementos del array iterando
+                //index es la posicion
+                //arr el array
+                array1.reduce((total,num,index,array1)=>{
+                      total+= num
+                      if(index === array1.length-1){return `El promedio de la lista ${array1.join(" + ")} es: ${total/array1.length}`
+                }else{
+                    return total;
+                }
+                })
+            )
+            
+        }
+        arrayNumerico7([3,4,5])
+
+
+
+
+        const arrayNumerico8 = (array) =>{
+            array.reduce((total,num,index,array)=>{
+                total += num
+                if(index === array.length-1){
+                    return console.info(`El valor es: ${total/array.length}`)
+                }else{
+                    return total;
+                }
+            })
+        }
+
+        arrayNumerico8([4,5,6])
+
+    </script>
+</body>
+</html>

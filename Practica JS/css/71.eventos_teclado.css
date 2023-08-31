@@ -1,0 +1,540 @@
+/******************** RESET CSS ************************
+  *Para que sirve este ::root? basicamente es una manera de crear variables dentro de CSS de manera que podamos usar en nuestra disposicion mucho mas rapido los estilos, en ves de repetir una y otra vez.
+
+
+*/
+:root{
+    --main-font: sans-serif;
+    --font-size: 16px;
+    --main-color: #f7df1e;
+    --second-color: #222;
+    --main-modal-color: rgba(247,222,30,0.85);
+    --second-modal-color: rgba(34,34,34,0.85);
+    --container-width: 1200px;
+ }
+ /*Estableciendo un reseteo basico, donde se van a establecer los valores de todo el documento*/
+ html{
+     box-sizing: border-box;
+     font-family: var(--main-font);
+     font-size: var(--font-size);
+     scroll-behavior: smooth;
+ }
+ 
+ *,
+ *::before,
+ *::after{
+     box-sizing: inherit;
+ }
+ 
+ 
+ body{
+     margin: 0;
+     overflow-x: hidden;
+ }
+ 
+ img{
+     max-width: 100%;
+     height: auto;
+ }
+ 
+ /* **************** MENU HAMBURGUESA ************* */
+ 
+ .header{
+     z-index: 997;
+     position: sticky;
+     top: 0;
+     padding: 1rem;
+     background-color: var(--main-color);
+     color: var(--second-color);
+ }
+ 
+ .header h1{
+     margin: 0;
+     text-align: center;
+ }
+ .estado-conexion{
+   opacity: 0;
+    transform: translate(0,-100% );
+    z-index: 999;
+    padding: 1rem;
+    text-align: center;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top:0;
+    background-color: red;
+    color: black;
+    transition: transform 0.4s ease;
+    
+ }
+
+ .estado-conexion.offline{
+    
+    background-color: red;
+    color: black;
+    opacity: 1;
+    transform: translate(0,0);
+ }
+ .estado-conexion.online{
+   
+    background-color: green;
+    color: white;
+    opacity: 1;
+    transform: translate(0,0);
+ }
+ 
+ .section{
+     padding: 2rem;
+     padding-top: 4rem;
+     margin-left: auto;
+     margin-right: auto;
+     width: 100%;
+     max-width: var(--container-width);
+     min-height: 100vh;
+     text-align: center;
+ }
+ 
+ .panel{
+     position: fixed;
+     z-index: 998;
+     top: 0;
+     bottom: 0;
+     right: 0;
+     left: 0;
+     overflow-y: auto;
+     background-color: var(--second-modal-color);
+     width: 100%;
+     /* 
+     Donde quiero posicionar el menu
+     De arriba
+     transform: translate(0,-100% );
+     De abajo
+     transform: translate(0, 100%);
+     De izquierda
+     transform: translate(-100%, 0);
+     De derecha
+     transform: translate( 100% ,0); 
+     */
+     opacity: 0;
+     transform: translate(0,-100% );
+     transition: transform 0.4s ease;
+     /*
+     Desaparecer y aparecer
+     visibility: hidden;
+     opacity: 0;
+ 
+     transition: transform 0.4s ease, opacity 0.3s ease;
+     */
+ }
+ 
+ .panel.is-active{
+     transform: translate(0,0);
+     opacity: 1;
+      /*
+     Desaparecer y aparecer
+     visibility: visible;
+     opacity: 1;
+     
+     */
+ }
+ 
+ 
+ 
+ 
+ .panel-btn{
+     position: fixed;
+     border: 0;
+     cursor: pointer;
+     z-index: 999;
+     bottom: 1vh;
+     right: 1vw;
+     width: 4rem;
+     height: 4rem;
+     border-radius: 50%;
+     padding: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-color: var(--main-color);
+     
+ }
+ 
+ 
+ .menu{
+     width: inherit;
+     display:flex;
+    
+     flex-direction: column;
+     justify-content: space-evenly;
+     align-items: center;
+     text-align: center;
+     margin-top: 3rem;
+     
+ }
+ 
+ .menu a{
+     padding: 2rem;
+     width: inherit;
+     display: block;
+     font-size: 1.5rem;
+     text-decoration: none;
+     color: var(--main-color);
+     transition: all 0.3s ease;
+     
+ }
+ 
+ .menu a:hover{
+   font-weight: bold;
+   color:var(--second-color);
+   background-color: var(--main-modal-color);
+ }
+ 
+ /* Eventos del teclado */
+ .stage{
+    display: flex;
+    min-height: 50vh;
+    background-color: var(--second-color);
+ }
+
+ .bol{
+    margin: auto;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: var(--main-color);
+ }
+
+ /*Scroll Top Btn*/
+ .scroll-top-btn{
+    position: fixed;
+    z-index: 999;
+    bottom: 1vh;
+    right: calc(4.23rem + 2vh);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: var(--main-color);
+    color: var(--second-color);
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    transition: all 0.3s ease-out;
+ }
+ .scroll-top-btn:hover{
+    background-color: var(--second-color);
+    color: var(--main-color);
+ }
+ .hidden{
+    visibility: hidden;
+    opacity: 0;
+ }
+
+
+  /*Scroll Dark-Theme Btn*/
+  .dark-theme-btn{
+    position: fixed;
+    z-index: 999;
+    bottom: 1vh;
+    left: 5px;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: var(--main-color);
+    color: var(--second-color);
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    transition: all 0.3s ease-out;
+ }
+ .dark-theme-btn:hover{
+    background-color: var(--second-color);
+    color: var(--main-color);
+ }
+ .dark-mode{
+    background-color: var(--second-color);
+    color: var(--main-color);
+ }
+ .white{
+    background-color: gray;
+ }
+
+
+ /*☀️*/
+
+ /* Search Filters */
+ .cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ }
+ .card{
+    background-color: var(--second-color);
+    color: var(--main-color);
+    transition: all 0.3s ease-out;
+ }
+
+ .card img{
+    width: 100%;
+    height: auto;
+ }
+ .card figcaption{
+    padding: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+ }
+
+ .filter{
+   /* display: none; */
+   visibility: hidden;
+   opacity: 0;
+   order: 1;
+ }
+
+ /* Responsive Slider */
+ .slider{
+   position: relative;
+   width: 80%;
+   margin: 1rem auto;
+   text-align: center;
+   border: thin solid black;
+ }
+
+ .slider-slides{
+   position: relative;
+   height: 400px;
+ }
+
+ .slider-slide{
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 90%;
+   width: 100%;
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity 1s ease;
+
+ }
+ .slider-slide img{
+   height: inherit;
+   width: inherit;
+   object-fit: cover;
+   object-position: 50% 60%;
+ }
+
+ .slider-slide.on-active{
+   opacity: 1;
+   visibility: visible;
+ }
+
+ .slider-btns{
+   position: absolute;
+   width: 100%;
+   top: 50%;
+   display: flex;
+   justify-content: space-between;
+   font-size: 3rem;
+   font-weight: bold;
+ }
+
+ .slider a{
+   display: block;
+   width: 4rem;
+   height: 4rem;
+   border-radius: 50%;
+   border: thin solid #000;
+   text-decoration: none;
+   background-color: transparent;
+   color: black;
+   transition: all 0.3s ease;
+ }
+
+ .slider a:hover{
+   color: #4d4d4d;
+ }
+
+ /* ScrollSpy */
+ @media screen and (min-width: 1024px){
+   body{
+      display: grid;
+      grid-template-columns: 80% 20%;
+      grid-template-rows: 4rem auto;
+      grid-template-areas: 
+      "header header"
+      "main panel";
+   }
+
+   main{
+      grid-area: main;
+   }
+
+   .header{
+      grid-area: header;
+   }
+
+   .panel{
+      opacity: 1;
+      grid-area: panel;
+      position: sticky;
+      top: 4rem;
+      margin: -4px;
+      align-self: start;
+      justify-content: flex-start;
+      transform: translate(0,0);
+      background-color: var(--second-color);
+      
+   }
+   .panel-btn{
+      display: none;
+   }
+   .menu{
+      justify-content: start;
+      text-align: right;
+      padding: 0;
+   }
+   .menu a{
+      font-size: 1rem;
+      padding: .60rem;
+   }
+   .menu a:hover,
+   .menu a.active{
+     color: var(--second-color);
+     background-color: var(--main-color);
+   }
+   .scroll-top-btn{
+      right: inherit;
+      left: calc(4.25rem + 1vw);
+   }
+   
+   /* .section{
+      border: thin solid red
+   } */
+ }
+
+ video{
+   display: block;
+   width: 100%;
+    height: auto;
+   
+}
+
+/* ContactForm Validations*/
+.contact-form{
+   --form-ok-color: #4caf50;
+   --form-error-color: #f44336;
+   margin-left: auto;
+   margin-right: auto;
+   width: 80%;
+}
+
+.contact-form > *{
+   padding: 0.5rem; 
+   margin: 1rem auto;
+   display: block;
+   width: 100%;
+}
+.contact-form textarea{
+   resize: none;
+}
+
+.contact-form legend, 
+.contact-form-response{
+   font-size: 1.5rem;
+   font-weight: bold;
+   text-align: center;
+}
+
+.contact-form input,
+.contact-form textarea{
+   font-size: 1rem;
+   font-family: sans-serif;
+}
+
+.contact-form input[type="submit"]{
+   width: 50%;
+   font-weight: bold;
+   cursor: pointer;
+}
+
+.contact-form *::placeholder{
+   color: #000;
+}
+/*NOTA: En esta parte en css vamos a utilizar dos propiedades que sirven para indicar cambios de estilo, en el caso de que la validacion sea correcta o incorrecta, le podemos dar el estilo que queramos.*/
+.contact-form [required]:valid{
+   border: thin solid var(--form-ok-color);
+}
+.contact-form [required]:invalid{
+   border: thin solid var(--form-error-color);
+}
+
+.contact-form-error{
+   margin-top: -1rem;
+   font-size: 80%;
+   background-color: var(--form-error-color);
+   color: #fff;
+   transition: all 800ms ease;
+}
+
+.contact-form-error.is-active{
+   display: block;
+   animation: show-message 1s 1 normal 0s ease-out both;
+}
+.contact-form-response{
+   position: relative;
+   background-color: var(--main-color);
+   color: var(--second-color);
+   padding: 0;
+   width: 80%;
+   left: 6vw;
+   font-size: 1rem;
+   text-align: center;
+   margin: 0;
+   border: thin solid #222;
+}
+
+.none{
+   display: none;
+}
+
+@keyframes show-message{
+   0%{
+      visibility: hidden;
+      opacity: 0;
+   }
+   100%{
+      visibility: visible;
+      opacity: 1;
+   }
+}
+
+/*Estilos para el narrador*/
+.narrador-box{
+   display: inline-block;
+   position: relative;
+   
+}
+.narrador-box select{
+   display: block;
+   margin: auto;
+}
+.narrador-box textarea{
+   display: block;
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+   resize: none; 
+}
+
+.narrador-box button{
+   width: 4rem;
+   height: 3rem;
+   border-radius: 30%;
+   background-color: var(--main-color);
+   border: none;
+}
+.narrador-box button:hover{
+   background-color: var(--second-color);
+   color: white;
+}
+

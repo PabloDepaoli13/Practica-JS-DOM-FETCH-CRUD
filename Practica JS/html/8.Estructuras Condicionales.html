@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // If-Else //
+        let edad = 17;
+
+        if(edad >= 18){
+         console.log("Eres mayor de edad")
+        }else{
+         console.log("No eres mayor de edad")
+        }
+
+
+        let dia = 5
+
+        if(dia > 0 && dia <=5){
+            console.log("Es la hora de dormir")
+        }else if(dia > 5 && dia < 12){
+            console.log("Buen dia es hora de levantarse")
+        }else{
+            console.log("qsy")
+        }
+
+        //Operador ternario ()? verdadero:falso;
+
+        let altura = 1.81
+
+        let eresAlto = (altura > 1.80)?"Eres alto": "Eres bajo"
+
+        console.log(eresAlto)
+
+        // Switch-case//
+        mes = 4 
+
+        switch(mes){
+          case  4: 
+          console.log("Otoño") 
+          break;
+          case 6: 
+          console.log("Invierno")
+          break;
+          case 9: 
+          console.log("Primavera")
+          break;
+          case 12:
+          console.log("Verano")
+          break;
+          default: 
+          console.log("Ese mes no existe")
+          break;
+        }
+
+        
+    </script>
+</body>
+</html>

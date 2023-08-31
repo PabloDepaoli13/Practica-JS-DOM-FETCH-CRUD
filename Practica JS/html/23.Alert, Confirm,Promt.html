@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Estas notificaciones cuelgan del metodo window pero realmente no es necesario poner window.alert() sino que poniendo solo alert() es suficiente
+
+
+        // alert("Hola esto es una alerta")
+        // confirm("Hola esto es una confirmacion")
+        // prompt("Hola esto es un promt y le permite al usuario ingresar un valor")
+
+        let alerta =  alert("Hola esto es una alerta")
+        let confirmacion = confirm("Hola esto es una confirmacion")
+        let aviso = prompt("Hola esto es un promt y le permite al usuario ingresar un valor")
+
+        console.log(alerta)//undefined
+        console.log(confirmacion)//true
+        console.log(aviso)//Valor tipiado, en caso de tocar cancelar va a aparecer null
+    </script>
+</body>
+</html>

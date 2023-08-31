@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const numeros = [1,2,3,4,5,6,7,8,9]
+
+        //Break lo que hace es termina la iteracion entera solamente imprimiendo todo hasta que llegue al 5
+        for (let i = 0; i < numeros.length; i++) {
+            if(i === 5){
+               break
+            }
+            console.log(numeros[i]);
+            
+        }
+        //Continue lo que hace es saltarse la itercion cuando llegue al 5 pero solo una vez, es decir que luego continua imprimiendo a partir del 7.
+        for (let i = 0; i < numeros.length; i++) {
+            if(i===5){
+               continue;
+            }
+            console.log(numeros[i])
+            
+        }
+    </script>
+    
+</body>
+</html>

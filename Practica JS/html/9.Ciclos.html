@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let contador = 0
+        let contador1 = 10
+
+
+        while(contador <= 10){
+            console.log(contador)
+            contador++
+        }
+
+        do{
+           console.log(contador1)
+           contador1 = contador1 - 1
+        }while(contador1 >= 1);
+
+        for(let i = 0; i <= 10; i++){
+          console.log(`Numero: ${i}`)
+        }
+
+        let numeros = []
+
+        for(let i = 1; i <= 10 ; i++){
+             numeros.push(i*10)
+        }
+        console.log(numeros)
+
+ 
+        for(let i = 0; i < numeros.length; i++){
+           console.log(numeros[i])
+        }
+
+        //for of y for in//
+        // For in permite recorrer un objeto y se usa en estos.
+        const objeto1 = {
+            nombre: 'Carlos',
+            apellido: "Perez",
+            edad: 22,
+            trabajo: 'Escuela'
+        }
+        for (const propiedad in objeto1) {
+           console.log(`Key: ${propiedad}, Value: ${objeto1[propiedad]}`)
+        }
+        //For of, te permite recorrer cualquier objeto que sea iterable en js.
+        for (const elemento of numeros) {
+            console.log(elemento)
+        }
+
+        let nombre = "Pablo"
+
+        for (const caracter of nombre) {
+            console.log(caracter)
+        }
+
+    </script>
+</body>
+</html>

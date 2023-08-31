@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //POO
+        /*
+        Clases --Modelo a seguir.
+        Objetos -- Es una instancia de una clase, osea una copia de ese modelo a seguir.
+          -Atributos -- Es una caracteristica o propiedad del objeto.
+          -Metodos --Acciones que un objeto puede realizar. (son variables dentro de un objeto) (funciones que se encuentran dentro de un objeto)
+        
+        
+        */
+
+        //Prototipo: es un mecanismo por el cual un objeto va a poder heredar de un objeto padre, caracteristicas y metodos.
+
+        const animal = {
+            nombre: "snopy",
+            sonar(){
+                console.log("fjsdahfiud")
+            }
+        }
+        const animal2 = {
+            nombre: "lola",
+            sonar(){
+                console.log("fjsdahfiud")
+            }
+        }
+        
+
+        console.log(animal);
+        console.log(animal2);
+        // Esto que acabamos de hacer no es funcional, para esto estan las clases. Ahora generaremos un prototipo para poder generar objetos, sin tanto codigo.
+
+        //Funcion Constructora
+
+        //VERSION 1 donde los metodos se encuentran dentro de los metodos.
+
+        // function animal3(nombre, genero){
+        //     //Atributos
+        //    this.nombre = nombre
+        //    this.genero = genero
+
+        //    //Metodos
+        //    this.sonar = function(){
+        //       console.log("Hago sonidos porque estoy vivo")
+        //    }
+        //    this.saludar = function(){
+        //     console.log(`Hola me llamo ${this.nombre}`)
+        //    }
+        // }
+
+        //VERSION 2 en donde se formula correctamente asignando los metodos por fuera al prototipo a traves del recurso .prototype
+        
+        function animal3(nombre, genero){
+            //Atributos
+           this.nombre = nombre
+           this.genero = genero
+        }
+            //Metodos
+           animal3.prototype.sonar = function(){
+            console.log("Hago sonidos porque estoy vivo")
+        }
+           animal3.prototype.saludar = function(){
+            console.log(`Hola me llamo ${this.nombre}`)
+        }
+        
+        //Herencia Prototipica en Objetos:
+        function Perro(nombre, genero, tamaño){
+           this.super = animal3;
+           this.super(nombre, genero);
+           this.tamaño = tamaño;
+           
+        }
+
+        //Perro esta heredando de animal.
+        Perro.prototype = new animal3();
+        Perro.prototype.constructor = Perro ;
+
+        //Sobreescritura de metodos del Prototipo padre en el hijo.
+        Perro.prototype.sonar =  function(){
+            console.log("Soy un perro guau guau")
+        }
+        Perro.prototype.ladrar =  function(){
+            console.log("Estoy ladrando guau guau grrrr")
+        }
+           //Herencia Prototipica en Objetos:
+           function Conejo(nombre, genero, velocidad){
+            this.super = animal3;
+            this.super(nombre,genero);
+            this.velocidad = velocidad;
+        }
+
+        Conejo.prototype = new animal3();
+        Conejo.prototype.constructor = Conejo
+
+        Conejo.prototype.saludar = function(){
+            console.log(`Hola soy ${this.nombre} el conejo`)
+        }
+        
+        const snoopy = new Perro("Chupi", "Trans", "Grande"),
+        lolaBunny = new Conejo("Lulu", "No Binario", "Muy rapido")
+
+        console.log(snoopy)
+        console.log(lolaBunny)
+
+        snoopy.saludar()
+        snoopy.sonar()
+        lolaBunny.saludar()
+        lolaBunny.sonar()
+           
+     
+        
+    </script>
+</body>
+</html>
